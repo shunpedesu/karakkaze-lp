@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<template id="__bundler_thumbnail">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="#0b0e13"/>
+    <g stroke="#d6a35a" stroke-width="1.4" fill="none" opacity="0.85">
+      <path d="M30 64 L50 46 L70 64"/>
+      <rect x="36" y="64 " width="28" height="14" rx="1"/>
+    </g>
+    <g fill="#e8ebf0">
+      <circle cx="26" cy="30" r="1.6" opacity="0.8"/>
+      <circle cx="44" cy="22" r="1.3" opacity="0.7"/>
+      <circle cx="62" cy="34" r="1.7" opacity="0.85"/>
+      <circle cx="74" cy="24" r="1.2" opacity="0.6"/>
+      <circle cx="54" cy="40" r="1.2" opacity="0.5"/>
+      <circle cx="34" cy="44" r="1.1" opacity="0.5"/>
+    </g>
+    <text x="50" y="90" text-anchor="middle" fill="#f1efe8" font-family="serif" font-size="11" letter-spacing="1">からっかぜの夜</text>
+  </svg>
+</template>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Old+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:#0b0e13}
+  @keyframes snowfall{0%{transform:translateY(-8vh) translateX(0);opacity:0}10%{opacity:.9}100%{transform:translateY(108vh) translateX(var(--drift));opacity:.15}}
+  @keyframes lampflicker{0%,100%{opacity:.85}48%{opacity:.7}52%{opacity:.92}}
+  @keyframes fadeup{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
+  .reveal{opacity:1}
+  ::selection{background:#3a5172;color:#f3f1ea}
+</style>
+</helmet>
+<div style="position:relative;width:100%;min-height:100vh;background:#0b0e13;font-family:'Zen Old Mincho',serif;color:#e6e3da;overflow-x:hidden">
+
+  <div ref="{{ snowRef }}" style="position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden">{{ snow }}</div>
+
+  <!-- ============ HERO ============ -->
+  <header style="position:relative;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;overflow:hidden;padding:0 24px">
+    <div style="position:absolute;inset:0;z-index:0">
+      <img src="assets/screen-snow-ryokan.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 38%;filter:grayscale(.35) brightness(.62) contrast(1.02)"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,19,.78) 0%,rgba(11,14,19,.45) 38%,rgba(11,14,19,.72) 72%,rgba(11,14,19,.98) 100%)"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(120% 80% at 50% 42%,rgba(20,30,46,.25),rgba(11,14,19,.85))"></div>
+    </div>
+
+    <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:760px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:34px;opacity:.78">
+        <span style="width:34px;height:1px;background:linear-gradient(90deg,transparent,#7d8a99)"></span>
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;letter-spacing:.42em;color:#aeb6c0;text-indent:.42em">MYSTERY SOUND NOVEL</span>
+        <span style="width:34px;height:1px;background:linear-gradient(90deg,#7d8a99,transparent)"></span>
+      </div>
+
+      <h1 style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(52px,11vw,116px);line-height:1.06;letter-spacing:.04em;color:#f1efe8;text-shadow:0 2px 40px rgba(0,0,0,.7),0 0 1px rgba(214,163,90,.3);margin-bottom:10px">からっかぜの夜</h1>
+      <div style="width:64px;height:2px;background:linear-gradient(90deg,transparent,#d6a35a,transparent);margin:22px 0 26px;opacity:.85;box-shadow:0 0 18px rgba(214,163,90,.5)"></div>
+      <p style="font-family:'Zen Old Mincho',serif;font-weight:500;font-size:clamp(18px,3.6vw,26px);letter-spacing:.22em;color:#d7d3c8;text-shadow:0 1px 14px rgba(0,0,0,.8)">四万温泉に集いし者たち</p>
+
+      <p style="margin-top:38px;font-size:clamp(13px,2.6vw,15px);line-height:2.1;color:#9aa3ad;letter-spacing:.08em;max-width:480px">群馬・四万温泉、12月末。<br>大雪で孤立した旅館で、連続する死。</p>
+
+      <a href="{{ playUrl }}" target="_blank" rel="noopener" style="margin-top:46px;display:inline-flex;align-items:center;gap:12px;padding:17px 42px;background:linear-gradient(180deg,#d6a35a,#bd8a42);color:#1a130a;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:16px;letter-spacing:.14em;text-decoration:none;border-radius:2px;box-shadow:0 8px 34px rgba(214,163,90,.28),0 0 0 1px rgba(232,189,118,.4) inset" style-hover="box-shadow:0 10px 44px rgba(214,163,90,.45),0 0 0 1px rgba(232,189,118,.6) inset;transform:translateY(-2px)">
+        いますぐ無料でプレイする
+        <span style="font-size:13px">→</span>
+      </a>
+      <p style="margin-top:16px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.18em;color:#76808b">全編無料・ブラウザでプレイ可能</p>
+    </div>
+
+    <div style="position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:10;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5">
+      <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:10px;letter-spacing:.3em;color:#aeb6c0">SCROLL</span>
+      <span style="width:1px;height:38px;background:linear-gradient(180deg,#aeb6c0,transparent)"></span>
+    </div>
+  </header>
+
+  <!-- ============ あらすじ ============ -->
+  <section class="reveal" style="position:relative;z-index:10;max-width:780px;margin:0 auto;padding:130px 28px 110px;text-align:center">
+    <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.4em;color:#7d8a99;text-indent:.4em">STORY</span>
+    <h2 style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:clamp(22px,4.4vw,30px);letter-spacing:.1em;color:#e9e6dd;margin:18px 0 40px">あらすじ</h2>
+    <p style="font-family:'Zen Old Mincho',serif;font-size:clamp(16px,3.2vw,21px);line-height:2.5;letter-spacing:.06em;color:#cfcabf">
+      からっかぜが吹く年末の夜、<br>
+      四万温泉の旅館「四万館」に、5人の客と3人の旅館スタッフが閉じ込められた。<br>
+      橋は雪で塞がれ、外との連絡は絶たれている。<br>
+      そして、ひとり目が死んだ。
+    </p>
+    <p style="margin-top:34px;font-size:13px;letter-spacing:.14em;color:#8b95a1">――この館に、人殺しがいる。</p>
+  </section>
+
+  <!-- ============ 特徴 ============ -->
+  <section class="reveal" style="position:relative;z-index:10;background:#0f131a;border-top:1px solid #1c2230;border-bottom:1px solid #1c2230;padding:96px 28px">
+    <div style="max-width:1040px;margin:0 auto">
+      <div style="text-align:center;margin-bottom:62px">
+        <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.4em;color:#7d8a99;text-indent:.4em">FEATURES</span>
+        <h2 style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:clamp(22px,4.4vw,30px);letter-spacing:.1em;color:#e9e6dd;margin-top:16px">ゲームの特徴</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:#1c2230;border:1px solid #1c2230">
+        <sc-for list="{{ features }}" as="f" hint-placeholder-count="4">
+          <div style="background:#12161e;padding:42px 30px;display:flex;flex-direction:column;gap:18px" style-hover="background:#161c26">
+            <div style="font-family:'Shippori Mincho B1',serif;font-size:26px;color:#d6a35a;line-height:1;opacity:.92">{{ f.no }}</div>
+            <h3 style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:18px;letter-spacing:.06em;color:#eae7de">{{ f.title }}</h3>
+            <p style="font-size:13.5px;line-height:2;color:#9aa3ad;letter-spacing:.04em">{{ f.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ スクリーンショット ============ -->
+  <section class="reveal" style="position:relative;z-index:10;max-width:1100px;margin:0 auto;padding:110px 28px 96px">
+    <div style="text-align:center;margin-bottom:56px">
+      <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.4em;color:#7d8a99;text-indent:.4em">SCREENS</span>
+      <h2 style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:clamp(22px,4.4vw,30px);letter-spacing:.1em;color:#e9e6dd;margin-top:16px">プレイ画面</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px">
+      <figure style="margin:0;border:1px solid #232b38;background:#0f131a;padding:10px;box-shadow:0 18px 50px rgba(0,0,0,.5)">
+        <img src="assets/screen-snow-ryokan.png" alt="からっかぜの夜 プレイ画面 — 雪の四万温泉" style="width:100%;display:block;filter:saturate(.92)"/>
+        <figcaption style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.12em;color:#76808b;padding:14px 6px 6px">物語は静かな地の文から始まる</figcaption>
+      </figure>
+      <figure style="margin:0;border:1px solid #232b38;background:#0f131a;padding:10px;box-shadow:0 18px 50px rgba(0,0,0,.5)">
+        <img src="assets/screen-shoji.png" alt="からっかぜの夜 プレイ画面 — 障子と会話" style="width:100%;display:block;filter:saturate(.92)"/>
+        <figcaption style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.12em;color:#76808b;padding:14px 6px 6px">登場人物たちの会話に、嘘が混じる</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ 登場人物 ============ -->
+  <section class="reveal" style="position:relative;z-index:10;background:#0f131a;border-top:1px solid #1c2230;padding:96px 28px">
+    <div style="max-width:880px;margin:0 auto;text-align:center">
+      <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.4em;color:#7d8a99;text-indent:.4em">CHARACTERS</span>
+      <h2 style="font-family:'Shippori Mincho B1',serif;font-weight:600;font-size:clamp(22px,4.4vw,30px);letter-spacing:.1em;color:#e9e6dd;margin:16px 0 22px">四万館に集いし者たち</h2>
+      <p style="font-size:14px;line-height:2.1;color:#9aa3ad;letter-spacing:.05em;max-width:560px;margin:0 auto 50px">登場人物の名は、群馬の地名に由来する。<br>渋川、岩島、坂上、中之条、長野原、原町、太田――旅館に集ったのは、彼らだ。</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:12px">
+        <sc-for list="{{ cast }}" as="c" hint-placeholder-count="7">
+          <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:#12161e;border:1px solid #232b38;border-radius:2px">
+            <span style="width:7px;height:7px;border-radius:50%;background:#d6a35a;box-shadow:0 0 8px rgba(214,163,90,.7);animation:lampflicker 3.5s ease-in-out infinite"></span>
+            <span style="font-family:'Shippori Mincho B1',serif;font-size:16px;letter-spacing:.08em;color:#e6e3da">{{ c.name }}</span>
+            <span style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.06em;color:#76808b">{{ c.role }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section style="position:relative;z-index:10;padding:120px 28px;text-align:center;overflow:hidden">
+    <div style="position:absolute;inset:0;z-index:0">
+      <img src="assets/screen-shoji.png" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:grayscale(.4) brightness(.4)"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,19,.96),rgba(15,21,30,.86) 50%,rgba(11,14,19,.97))"></div>
+    </div>
+    <div class="reveal" style="position:relative;z-index:5;max-width:620px;margin:0 auto">
+      <p style="font-family:'Shippori Mincho B1',serif;font-size:clamp(20px,4vw,28px);line-height:1.9;letter-spacing:.08em;color:#eae7de">からっかぜの吹く夜に、<br>あなたを待つ者がいる。</p>
+      <a href="{{ playUrl }}" target="_blank" rel="noopener" style="margin-top:42px;display:inline-flex;align-items:center;gap:12px;padding:19px 52px;background:linear-gradient(180deg,#d6a35a,#bd8a42);color:#1a130a;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:17px;letter-spacing:.14em;text-decoration:none;border-radius:2px;box-shadow:0 8px 34px rgba(214,163,90,.3),0 0 0 1px rgba(232,189,118,.4) inset" style-hover="transform:translateY(-2px);box-shadow:0 12px 48px rgba(214,163,90,.5),0 0 0 1px rgba(232,189,118,.6) inset">いますぐプレイする <span style="font-size:13px">→</span></a>
+      <p style="margin-top:18px;font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;letter-spacing:.14em;color:#9aa3ad">インストール不要・全編無料・セーブ／ロード対応</p>
+    </div>
+  </section>
+
+  <!-- ============ 配信歓迎 ============ -->
+  <section class="reveal" style="position:relative;z-index:10;max-width:780px;margin:0 auto;padding:8px 28px 90px;text-align:center">
+    <div style="border:1px solid #2a3242;background:#11151d;padding:38px 32px;border-radius:2px">
+      <div style="font-family:'Shippori Mincho B1',serif;font-size:17px;letter-spacing:.1em;color:#d6a35a;margin-bottom:14px">実況・配信を歓迎します</div>
+      <p style="font-size:14px;line-height:2.1;color:#a7afb9;letter-spacing:.04em">本作の実況・配信・動画投稿は自由です。<br>あなたの声で、四万館の夜を語ってください。</p>
+    </div>
+  </section>
+
+  <!-- ============ 情報・クレジット ============ -->
+  <section class="reveal" style="position:relative;z-index:10;background:#0f131a;border-top:1px solid #1c2230;padding:80px 28px">
+    <div style="max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:42px">
+      <div>
+        <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.3em;color:#7d8a99;margin-bottom:14px">PLAYTIME</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:19px;color:#e6e3da;letter-spacing:.06em">およそ 30分〜1 時間</div>
+        <div style="font-size:12.5px;color:#76808b;margin-top:8px;letter-spacing:.04em">1エンディングあたりの目安</div>
+      </div>
+      <div>
+        <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.3em;color:#7d8a99;margin-bottom:14px">ENVIRONMENT</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:19px;color:#e6e3da;letter-spacing:.06em">PC・スマホのブラウザ</div>
+        <div style="font-size:12.5px;color:#76808b;margin-top:8px;letter-spacing:.04em">Chrome / Safari / Edge 推奨</div>
+      </div>
+      <div>
+        <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.3em;color:#7d8a99;margin-bottom:14px">CREDIT</div>
+        <div style="font-family:'Shippori Mincho B1',serif;font-size:19px;color:#e6e3da;letter-spacing:.06em">しゅんぺ</div>
+        <div style="font-size:12.5px;color:#76808b;margin-top:8px;letter-spacing:.04em">企画・制作</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ シェア ============ -->
+  <section class="reveal" style="position:relative;z-index:10;text-align:center;padding:70px 28px 24px">
+    <p style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:12px;letter-spacing:.2em;color:#8b95a1;margin-bottom:22px">この夜を、誰かに知らせる</p>
+    <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
+      <a href="{{ shareUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:13px 26px;background:#15191f;border:1px solid #2a3242;color:#dcdac8;font-family:'Zen Kaku Gothic New',sans-serif;font-size:13px;letter-spacing:.1em;text-decoration:none;border-radius:2px" style-hover="border-color:#4a5568;background:#1a1f27">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="#e6e3da"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Xでシェア
+      </a>
+      <a href="{{ playUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:13px 26px;background:#15191f;border:1px solid #2a3242;color:#dcdac8;font-family:'Zen Kaku Gothic New',sans-serif;font-size:13px;letter-spacing:.1em;text-decoration:none;border-radius:2px" style-hover="border-color:#4a5568;background:#1a1f27">プレイページへ</a>
+    </div>
+  </section>
+
+  <!-- ============ フッター ============ -->
+  <footer style="position:relative;z-index:10;text-align:center;padding:54px 28px 60px;border-top:1px solid #161b24;margin-top:46px">
+    <div style="font-family:'Shippori Mincho B1',serif;font-size:15px;letter-spacing:.18em;color:#9aa3ad">からっかぜの夜</div>
+    <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;letter-spacing:.1em;color:#5f6873;margin-top:14px">© しゅんぺ</div>
+    <div style="font-family:'Zen Kaku Gothic New',sans-serif;font-size:10.5px;letter-spacing:.08em;color:#4a525c;margin-top:20px">本作はAIを活用して制作されています</div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:900},&quot;shareText&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;大雪で孤立した四万温泉の旅館で起きる連続死――ブラウザ専用ミステリーサウンドノベル『からっかぜの夜』。全編無料・ブラウザでプレイできます。 #からっかぜの夜&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;共有&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const playUrl = "https://shunpedesu.github.io/karakkaze-no-yoru/";
+    const shareText = this.props.shareText
+      ?? "豪雪で孤立した四万温泉の旅館で起きる連続死――ブラウザ専用ミステリーサウンドノベル『からっかぜの夜』。全編無料・ブラウザでプレイできます。 #からっかぜの夜";
+    const shareUrl = "https://twitter.com/intent/tweet?text="
+      + encodeURIComponent(shareText) + "&url=" + encodeURIComponent(playUrl);
+
+    // 感想投稿（ハッシュタグ付き投稿画面を開く）
+    const postUrl = "https://twitter.com/intent/tweet?text="
+      + encodeURIComponent("『からっかぜの夜』をプレイしました。\n\n#からっかぜの夜")
+      + "&url=" + encodeURIComponent(playUrl);
+
+    // ↓ 良いコメントをここに追記・差し替えしてください（現在はサンプル）
+    const voices = [
+      { text: "雪の音まで聞こえてきそうな静けさ。最後まで一気に読んでしまった。", handle: "@sample_user1", initial: "雪" },
+      { text: "見取り図を見ながら「誰がどこにいたか」を考える時間がたまらない。正統派でした。", handle: "@sample_user2", initial: "館" },
+      { text: "群馬の地名キャラがじわじわくる。怖いのに、どこか温かい夜でした。", handle: "@sample_user3", initial: "夜" },
+    ];
+
+    const features = [
+      { no: "01", title: "見取り図システム", body: "館の見取り図を確認しながら、誰がどこにいたのかを把握する。空間を読むことが、真相への第一歩になる。" },
+      { no: "02", title: "複数エンディング", body: "選択は結末を変える。たどり着く真実は、ひとつではない。何度でも、この夜をやり直せる。" },
+      { no: "03", title: "全編無料・ブラウザ完結", body: "インストール不要。PCでもスマホでも、開いてすぐに遊べる。セーブ／ロードにも対応。" },
+    ];
+
+    const cast = [
+      { name: "渋川かつじ", role: "支配人" },
+      { name: "岩島つるこ", role: "中居" },
+      { name: "坂上ねぎこ", role: "中居見習い" },
+      { name: "中之条まんじ", role: "客" },
+      { name: "長野原キャベ蔵", role: "客" },
+      { name: "長野原豚子", role: "客" },
+      { name: "原町ラスク", role: "客" },
+      { name: "太田こんにゃく", role: "客" },
+    ];
+
+    // falling snow — stable element built once
+    if (!this._snow) {
+      const flakes = [];
+      const N = 34;
+      for (let i = 0; i < N; i++) {
+        const size = 2 + Math.random() * 4;
+        const left = Math.random() * 100;
+        const dur = 9 + Math.random() * 12;
+        const delay = -Math.random() * 20;
+        const drift = (Math.random() * 60 - 30).toFixed(0) + "px";
+        const op = 0.25 + Math.random() * 0.55;
+        flakes.push(React.createElement("span", {
+          key: i,
+          style: {
+            position: "absolute", top: 0, left: left + "%",
+            width: size + "px", height: size + "px", borderRadius: "50%",
+            background: "rgba(232,235,240," + op + ")",
+            boxShadow: "0 0 " + (size * 1.5) + "px rgba(220,228,240,0.5)",
+            ["--drift"]: drift,
+            animation: "snowfall " + dur + "s linear " + delay + "s infinite",
+          },
+        }));
+      }
+      this._snow = React.createElement(React.Fragment, null, flakes);
+    }
+
+    return { playUrl, shareUrl, postUrl, voices, features, cast, snow: this._snow, snowRef: null };
+  }
+
+  componentDidMount() {
+    // Content is statically visible; no JS-driven reveal needed in this runtime.
+  }
+}
+</script>
+</body>
+</html>
